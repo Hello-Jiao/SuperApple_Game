@@ -41,7 +41,7 @@ function setup() {
   treePos_x = width / 2;
   treePos_y = height / 2;
   collectable = {
-    x_pos: 100,
+    x_pos: 300,
     y_pos: floorPos_y,
     size: 48
   };
@@ -225,24 +225,23 @@ function draw() {
   //   ellipse(414, 404, 31, 39);
   //   ellipse(430, 404, 31, 39);
   ellipse(
-    collectable.x_pos + 314,
+    collectable.x_pos + 14,
     collectable.y_pos - 20,
     collectable.size - 19,
     collectable.size - 11
   );
   ellipse(
-    collectable.x_pos + 330,
+    collectable.x_pos + 30,
     collectable.y_pos - 20,
     collectable.size - 19,
     collectable.size - 11
   );
   stroke(88, 70, 70);
   strokeWeight(3);
-  //   line(430, 374, 422, 393);
   line(
-    collectable.x_pos + 330,
+    collectable.x_pos + 30,
     collectable.y_pos - 42,
-    collectable.x_pos + 322,
+    collectable.x_pos + 22,
     collectable.y_pos - 32
   );
 
