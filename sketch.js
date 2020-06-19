@@ -14,11 +14,7 @@ var gameChar_y;
 var treePos_x;
 var treePos_y;
 
-var canyon = {
-  x_pos: 600,
-  y_pos: 576,
-  width: 18
-};
+var canyon;
 var collectable;
 
 var mountain = {
@@ -45,16 +41,22 @@ function setup() {
     y_pos: floorPos_y,
     size: 48
   };
+  canyon = {
+    x_pos: 600,
+    y_pos: floorPos_y,
+    width: 100
+  };
 }
 
 function draw() {
   background(100, 155, 255); //fill the sky blue
 
+  //draw some green ground
   noStroke();
   fill(0, 155, 0);
-  rect(0, floorPos_y, height, width - floorPos_y);
-  rect(685, floorPos_y, height, width - floorPos_y);
-  //draw some green ground
+  rect(0, floorPos_y, width, floorPos_y);
+  // rect(0, floorPos_y, height, width - floorPos_y);
+  // rect(685, floorPos_y, height, width - floorPos_y);
 
   //mountain
   fill(125, 139, 124);
@@ -159,67 +161,94 @@ function draw() {
   );
 
   //canyon
+  fill(100, 155, 255);
+  rect(canyon.x_pos, canyon.y_pos, canyon.width, floorPos_y);
   fill(168, 167, 186);
-  //   triangle(186, 471, 168, 576, 204, 576);
   triangle(
+    canyon.x_pos + canyon.width / 6,
+    canyon.y_pos + 40,
     canyon.x_pos,
-    canyon.y_pos - 107,
-    canyon.x_pos - 18,
-    canyon.y_pos,
-    canyon.x_pos + 18,
-    canyon.y_pos
+    height,
+    canyon.x_pos + canyon.width / 3,
+    height
   );
-  fill(223, 222, 240);
-  //   triangle(186, 471, 168, 576, 186, 576);
   triangle(
-    canyon.x_pos,
-    canyon.y_pos - 105,
-    canyon.x_pos - 18,
-    canyon.y_pos,
-    canyon.x_pos,
-    canyon.y_pos
+    canyon.x_pos + canyon.width / 2,
+    canyon.y_pos + 40,
+    canyon.x_pos + canyon.width / 3,
+    height,
+    canyon.x_pos + (canyon.width / 3) * 2,
+    height
   );
-  fill(168, 167, 186);
-  //   triangle(218, 471, 200, 576, 236, 576);
   triangle(
-    canyon.x_pos + 32,
-    canyon.y_pos - 105,
-    canyon.x_pos + 14,
-    canyon.y_pos,
-    canyon.x_pos + 50,
-    canyon.y_pos
+    canyon.x_pos + (canyon.width / 6) * 5,
+    canyon.y_pos + 40,
+    canyon.x_pos + (canyon.width / 3) * 2,
+    height,
+    canyon.x_pos + (canyon.width / 3) * 3,
+    height
   );
-  fill(223, 222, 240);
-  //   triangle(218, 471, 200, 576, 218, 576);
-  triangle(
-    canyon.x_pos + 32,
-    canyon.y_pos - 105,
-    canyon.x_pos + 14,
-    canyon.y_pos,
-    canyon.x_pos + 32,
-    canyon.y_pos
-  );
+  // fill(168, 167, 186);
+  // //   triangle(186, 471, 168, 576, 204, 576);
+  // triangle(
+  //   canyon.x_pos,
+  //   canyon.y_pos - 107,
+  //   canyon.x_pos - 18,
+  //   canyon.y_pos,
+  //   canyon.x_pos + 18,
+  //   canyon.y_pos
+  // );
+  // fill(223, 222, 240);
+  // //   triangle(186, 471, 168, 576, 186, 576);
+  // triangle(
+  //   canyon.x_pos,
+  //   canyon.y_pos - 105,
+  //   canyon.x_pos - 18,
+  //   canyon.y_pos,
+  //   canyon.x_pos,
+  //   canyon.y_pos
+  // );
+  // fill(168, 167, 186);
+  // //   triangle(218, 471, 200, 576, 236, 576);
+  // triangle(
+  //   canyon.x_pos + 32,
+  //   canyon.y_pos - 105,
+  //   canyon.x_pos + 14,
+  //   canyon.y_pos,
+  //   canyon.x_pos + 50,
+  //   canyon.y_pos
+  // );
+  // fill(223, 222, 240);
+  // //   triangle(218, 471, 200, 576, 218, 576);
+  // triangle(
+  //   canyon.x_pos + 32,
+  //   canyon.y_pos - 105,
+  //   canyon.x_pos + 14,
+  //   canyon.y_pos,
+  //   canyon.x_pos + 32,
+  //   canyon.y_pos
+  // );
 
-  fill(168, 167, 186);
-  //   triangle(250, 471, 232, 576, 268, 576);
-  triangle(
-    canyon.x_pos + 64,
-    canyon.y_pos - 105,
-    canyon.x_pos + 46,
-    canyon.y_pos,
-    canyon.x_pos + 82,
-    canyon.y_pos
-  );
-  fill(223, 222, 240);
-  //   triangle(250, 471, 232, 576, 250, 576);
-  triangle(
-    canyon.x_pos + 64,
-    canyon.y_pos - 105,
-    canyon.x_pos + 46,
-    canyon.y_pos,
-    canyon.x_pos + 64,
-    canyon.y_pos
-  );
+  // fill(168, 167, 186);
+  // //   triangle(250, 471, 232, 576, 268, 576);
+  // triangle(
+  //   canyon.x_pos + 64,
+  //   canyon.y_pos - 105,
+  //   canyon.x_pos + 46,
+  //   canyon.y_pos,
+  //   canyon.x_pos + 82,
+  //   canyon.y_pos
+  // );
+  // fill(223, 222, 240);
+  // //   triangle(250, 471, 232, 576, 250, 576);
+  // triangle(
+  //   canyon.x_pos + 64,
+  //   canyon.y_pos - 105,
+  //   canyon.x_pos + 46,
+  //   canyon.y_pos,
+  //   canyon.x_pos + 64,
+  //   canyon.y_pos
+  // );
   //collectable
   fill(186, 51, 51);
   //   ellipse(414, 404, 31, 39);
