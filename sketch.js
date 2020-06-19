@@ -19,11 +19,7 @@ var canyon = {
   y_pos: 576,
   width: 18
 };
-var collectable = {
-  x_pos: 100,
-  y_pos: 100,
-  size: 50
-};
+var collectable;
 
 var mountain = {
   x_pos: -400,
@@ -44,6 +40,11 @@ function setup() {
 
   treePos_x = width / 2;
   treePos_y = height / 2;
+  collectable = {
+    x_pos: 100,
+    y_pos: floorPos_y,
+    size: 48
+  };
 }
 
 function draw() {
@@ -225,13 +226,13 @@ function draw() {
   //   ellipse(430, 404, 31, 39);
   ellipse(
     collectable.x_pos + 314,
-    collectable.y_pos + 304,
+    collectable.y_pos - 20,
     collectable.size - 19,
     collectable.size - 11
   );
   ellipse(
     collectable.x_pos + 330,
-    collectable.y_pos + 304,
+    collectable.y_pos - 20,
     collectable.size - 19,
     collectable.size - 11
   );
@@ -240,9 +241,9 @@ function draw() {
   //   line(430, 374, 422, 393);
   line(
     collectable.x_pos + 330,
-    collectable.y_pos + 274,
+    collectable.y_pos - 42,
     collectable.x_pos + 322,
-    collectable.y_pos + 293
+    collectable.y_pos - 32
   );
 
   //Game character
